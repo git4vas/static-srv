@@ -4,6 +4,7 @@
   "description": "a simple static server",
   "main": "server.js",
   "dependencies": {
+    "dotenv": "^16.0.1",
     "fs": "^0.0.1-security",
     "http": "^0.0.1-security",
     "mime": "^3.0.0",
