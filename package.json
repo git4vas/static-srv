@@ -15,8 +15,9 @@
     "url": "^0.11.0"
   },
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test-env": "PORT=8080 node server.js"
   },
   "author": "",
   "license": "ISC"
