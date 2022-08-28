@@ -7,10 +7,14 @@ const fs = require("fs")
 const lookup = require("mime-types").lookup;
 
 // env variables
+require("dotenv").config()
 const dir_public = process.env.DIR_PUBLIC || __dirname + "/public/";
 const port = process.env.PORT || 1234;
 
 console.log(`public dir: "${dir_public}"`)
+console.log(`port: "${port}"`)
+//console.log(process.env)
+
 
 const server = http.createServer((req, res) => {
   //handle the req. & send back file from 'public'
