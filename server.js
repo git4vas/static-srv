@@ -1,6 +1,8 @@
 #! node
 
-const logger = require("./utils/logger")
+const logger_lib = require("./utils/logger2")
+const logger = logger_lib.get_logger()
+
 /*
 const helper = require("./utils/helper")
 console.log(helper, helper.do_test(3, 7))
@@ -11,6 +13,8 @@ const object1 = JSON.parse('{"k1":"one","k2":2}')
 console.log(object1.k1)
 console.log(object1.k2)
 */
+
+const info1 = logger.info
 
 logger.info('info');
 logger.warn('warning');
