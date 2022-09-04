@@ -1,7 +1,7 @@
 #! node
 
 const logger_lib = require("./utils/logger2")
-const logger = logger_lib.get_logger()
+const logger = logger_lib.getLogger()
 
 /*
 const helper = require("./utils/helper")
