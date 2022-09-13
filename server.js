@@ -32,7 +32,7 @@ const fs = require("fs")
 // npm i mime-types
 const lookup = require("mime-types").lookup;
 
-// env variables ($ node -r dotenv/config server.js)
+// env variables can be passed at start: `$ node -r dotenv/config server.js`
 require("dotenv").config()
 
 const dir_public = process.env.DIR_PUBLIC || __dirname + "/public/";
@@ -41,8 +41,6 @@ logger.info(`public dir: "${dir_public}"`)
 logger.info(`port: "${port}"`)
 //logger.info(process.env)
 
-
-
 /*
 console.info('info');
 console.warn('warning');
@@ -50,13 +48,12 @@ console.error('error');
 console.error(new Error('err msg'));
 */
 
-
-
 const server = http.createServer((req, res) => {
-  //handle the req. & send back file from 'dir_public'
+  //handle the request & send back file from 'dir_public'
   let parsedURL = url.parse(req.url, true);
-  //remove slashes
-  // / ^leading slash(es) OR trailing$ slash(es) / Globally 
+  /* remove
+  / ^leading slash(es) OR trailing$ slash(es) / Globally 
+  */ 
   let path = parsedURL.path.replace(/^\/+|\/+$/g, "");
 
   if (path == "") {
@@ -88,13 +85,23 @@ const server = http.createServer((req, res) => {
         case "index.html":
           res.writeHead(200, {"Content-type": "text/html" });
           break;
-        }
-        */
+      }
+      */
      res.end(content);
     }
   });
 });
 
-server.listen(port, "localhost", () => {
+server.listen(port, () => {
   logger.info(`listening on port: ${port}`)
 });
+
+/*
+server.listen({
+  host: '0.0.0.0', //'localhost'
+  port: port
+},
+() => {
+  logger.info(`listening on port: ${port}`)
+});
+*/

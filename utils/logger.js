@@ -1,6 +1,5 @@
 const winston = require("winston");
 
-//const logger1
 module.exports = winston.createLogger({
     //level: 'info', 
     format: winston.format.simple(),
@@ -11,4 +10,5 @@ module.exports = winston.createLogger({
     ],
 });
 
-//module.exports = logger1;
+//const logger1 = ...       // could use a constant but there's no need to
+//module.exports = logger1; // see logger2.js for proper usage of constants

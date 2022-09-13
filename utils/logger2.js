@@ -1,14 +1,15 @@
 const Winston = require("winston");
 
-const options = {
+const options4console = {
     //level: 'info', 
     format: Winston.format.simple(),
-    //format: Winston.format.simple(),
     //defaultMeta: { service: 'user-service' },
     transports: [
         new Winston.transports.Console()
     ]
 };
+
+options = options4console;
 
 const winstonLogger = Winston.createLogger(options);
 
@@ -26,7 +27,7 @@ class Logger {
     }
     
     
-    //info: function(msg){ ... }       // TRUЪ
+    //info: function(msg){ ... }       // TRUЪ syntax
     info(msg){
         this._log('info', msg)
     }
@@ -49,7 +50,7 @@ class Logger {
 const logger = new Logger()
 
 module.exports = {
-    //get_logger: () => { return logger }
+    //getLogger: () => { return logger }
     getLogger: function(){
         return logger
     }
